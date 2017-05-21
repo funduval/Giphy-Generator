@@ -1,6 +1,6 @@
 #magicGifs {
     min-height: 700px;
-    background: papayawhip;
+    background: #121c50;
 }
 
 .giphy {
@@ -18,7 +18,7 @@
 }
 
 body {
-    background-color: tomato;
+    background-image: url("../assets/images/American-Flag.jpg");
     font-size: 20px;
 }
 
@@ -26,6 +26,8 @@ body {
     min-height: 180px;
     padding: 6px;
     margin-top: 12px;
+    background-color: #121c50;
+    color:white;
 }
 
 #headline {
@@ -41,22 +43,28 @@ body {
     border-width: 3px;
     margin-top: 8px;
     padding: 34px;
+    background-color: #e2333f;
 }
 
 .callName {
     margin: 8px;
 }
 
-#gif-buttons {
-    min-height: 200px;
-    border-color: grey;
-    border-style: solid;
-    border-width: 14px;
-    margin-bottom: 16px;
+p{
+
+    color:white;
 }
 
-.item{
+#gif-buttons {
+    min-height: 200px;
+    border-color: #757171;
+    border-style: solid;
+    border-width: 16px;
+    margin-bottom: 16px;
+    background-color: #e2333f;
+}
 
-	float:left;
-	margin-right:18px;
+.item {
+    float: left;
+    margin-right: 18px;
 }
