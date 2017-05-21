@@ -62,15 +62,12 @@ $(".callName").on("click", function() {
                         // Giving the image tag an src attribute of a proprty pulled off the
                         // result item
 
-                        var imageUrl = results[i].images.fixed_height_still.url;
-                        politicoGif.addClass("gifItself");
-                        politicoGif.attr("src", imageUrl);
-
+                        politicoGif.addClass("imageItself")
                         politicoGif.attr("data-state", "still")
-                        politicoGif.attr("data-still", "results[i].images.fixed_height_still.url")
-                        politicoGif.attr("data-state", "animate")
-                        politicoGif.attr("data-animate", "results[i].images.fixed_height.url")
-                       
+                        politicoGif.attr("data-still", results[i].images.fixed_height_still.url)
+                        
+                        politicoGif.attr("data-animate", results[i].images.fixed_height.url)
+                        politicoGif.attr("src", results[i].images.fixed_height_still.url);
                         
                         console.log(results[i].images.fixed_height_still.url);
                        
@@ -81,20 +78,14 @@ $(".callName").on("click", function() {
 
                         $("#magicGifs").prepend(gifDiv);
 
+
+
                       }
+
 
                 };
 
-                        
-
-      });
-
-
-
- });
-
-
-                $(".gifItself").on("click", function() {
+               $(".imageItself").on("click", function() {
 
                             var state = $(this).attr("data-state");
                             
@@ -111,6 +102,12 @@ $(".callName").on("click", function() {
 
 
                         });
+                         
+
+      });
+
+
+ });
 
 
 
