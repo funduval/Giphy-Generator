@@ -71,7 +71,9 @@ $(".callName").on("click", function() {
 
                         $("#magicGifs").prepend(politicoGif);
 
-                    });
+                    }
+
+                  }
 
 
             });
