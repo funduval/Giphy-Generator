@@ -44,7 +44,7 @@ $(".callName").on("click", function(event) {
 
     $("#magicGifs").empty();
 
-    var politician = $(this).data("name")
+    var politician =  $(this).attr("data-name");
     console.log(politician);
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
 
