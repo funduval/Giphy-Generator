@@ -17,12 +17,26 @@ function renderButtons() {
         politicoBtn.text(topics[i]);
         // Adding the button to the HTML
         $("#gif-buttons").append(politicoBtn);
-    };
 
+    };
 };
 
-renderButtons();
+    $("#add-name").on("click", function(event) {
+        
+        event.preventDefault();
 
+        $("#gif-buttons").empty();
+
+        // This line will grab the text from the input box
+        var name = $("#name-input").val().trim();
+        // The movie from the textbox is then added to our array
+        topics.push(name);
+
+        renderButtons();
+        
+      });
+
+renderButtons();
 
 $(".callName").on("click", function() {
 
