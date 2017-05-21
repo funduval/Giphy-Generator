@@ -1,5 +1,6 @@
 var topics = ["Donald Trump", "Jeff Sessions", "Mitch McConnell", "Paul Ryan", "Angela Merkel", "Nigel Farage"]
-
+var animated;
+var still;
 
 function renderButtons() {
 
@@ -45,7 +46,9 @@ $(".callName").on("click", function() {
 
                     if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
                         // Creating a div with the class "item"
-                        var gifDiv = $("<div class='item'>");
+                        var gifDiv = $("<div>");
+
+                        gifDiv.addClass("item");
 
                         // Storing the result item's rating
                         var rating = results[i].rating;
@@ -58,8 +61,19 @@ $(".callName").on("click", function() {
 
                         // Giving the image tag an src attribute of a proprty pulled off the
                         // result item
-                        politicoGif.attr("src", results[i].images.fixed_height_still.url);
+
+                        var imageUrl = results[i].images.fixed_height_still.url;
+                        politicoGif.addClass("gifItself");
+                        politicoGif.attr("src", imageUrl);
+
+                        politicoGif.attr("data-state", "still")
+                        politicoGif.attr("data-still", "results[i].images.fixed_height_still.url")
+                        politicoGif.attr("data-state", "animate")
+                        politicoGif.attr("data-animate", "results[i].images.fixed_height.url")
+                       
+                        
                         console.log(results[i].images.fixed_height_still.url);
+                       
 
                         // Appending the paragraph and personImageto the "gifDiv" div 
                         gifDiv.append(p);
@@ -69,23 +83,21 @@ $(".callName").on("click", function() {
 
                       }
 
-                        $(this).attr("data-still", "results[i].images.fixed_height_still.url");
-
-                        $(this).attr("data-animate", "results[i].images.fixed_height.url");
-
                 };
+
+                        
 
       });
 
 
+
  });
 
-                        $(".item").on("click", function() {
+
+                $(".gifItself").on("click", function() {
 
                             var state = $(this).attr("data-state");
-                            // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-                            // Then, set the image's data-state to animate
-                            // Else set src to the data-still value
+                            
                             if (state === "still") {
                                 $(this).attr("src",$(this).attr("data-animate"));
                                 $(this).attr("data-state", "animate");
@@ -99,6 +111,7 @@ $(".callName").on("click", function() {
 
 
                         });
+
 
 
 
