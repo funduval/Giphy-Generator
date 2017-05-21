@@ -54,3 +54,9 @@ body {
     border-width: 14px;
     margin-bottom: 16px;
 }
+
+.item{
+
+	float:left;
+	margin-right:18px;
+}

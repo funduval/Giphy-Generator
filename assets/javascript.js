@@ -25,53 +25,86 @@ renderButtons();
 
 $(".callName").on("click", function() {
 
+            $("#magicGifs").empty();
 
-    var politician = $(this).data("name")
-    console.log(politician);
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
+            var politician = $(this).data("name")
+            console.log(politician);
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).done(function(response) {
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).done(function(response) {
 
-        // Storing an array of results in the results variable
-        var results = response.data;
+                // Storing an array of results in the results variable
+                var results = response.data;
 
-        console.log(results);
+                console.log(results);
 
-        for (var i = 0; i < results.length; i++) {
+                for (var i = 0; i < results.length; i++) {
 
-            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                // Creating a div with the class "item"
-                var gifDiv = $("<div class='item'>");
+                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                        // Creating a div with the class "item"
+                        var gifDiv = $("<div class='item'>");
 
-                // Storing the result item's rating
-                var rating = results[i].rating;
+                        // Storing the result item's rating
+                        var rating = results[i].rating;
 
-                // Creating a paragraph tag with the result item's rating
-                var p = $("<p>").text("Rating: " + rating);
+                        // Creating a paragraph tag with the result item's rating
+                        var p = $("<p>").text("Rating: " + rating);
 
-                // Creating a place for the new gif
-                var politicoGif = $("<img>");
+                        // Creating a place for the new gif
+                        var politicoGif = $("<img>");
 
-                // Giving the image tag an src attribute of a proprty pulled off the
-                // result item
-                politicoGif.attr("src", results[i].images.fixed_height.url);
-                console.log(results[i].images.fixed_height.url);
+                        // Giving the image tag an src attribute of a proprty pulled off the
+                        // result item
+                        politicoGif.attr("src", results[i].images.fixed_height_still.url);
+                        console.log(results[i].images.fixed_height_still.url);
 
-                // Appending the paragraph and personImageto the "gifDiv" div 
-                gifDiv.append(p);
-                gifDiv.append(politicoGif);
+                        // Appending the paragraph and personImageto the "gifDiv" div 
+                        gifDiv.append(p);
+                        gifDiv.append(politicoGif);
+
+                        $("#magicGifs").prepend(gifDiv);
+
+                      }
+
+                        $(this).attr("data-still", "results[i].images.fixed_height_still.url");
+
+                        $(this).attr("data-animate", "results[i].images.fixed_height.url");
+
+                };
+
+      });
 
 
-                $("#magicGifs").prepend(gifDiv);
+ });
 
-            };
+                        $(".item").on("click", function() {
 
-        };
+                            var state = $(this).attr("data-state");
+                            // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+                            // Then, set the image's data-state to animate
+                            // Else set src to the data-still value
+                            if (state === "still") {
+                                $(this).attr("src",$(this).attr("data-animate"));
+                                $(this).attr("data-state", "animate");
+                            } 
+
+                            else {
+                                 $(this).attr("src", $(this).attr("data-still"));
+                                 $(this).attr("data-state", "still");
+
+                            }
 
 
-    });
+                        });
 
-});
+
+
+
+
+ 
+
+
+         
