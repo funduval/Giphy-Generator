@@ -18,117 +18,107 @@ function renderButtons() {
         // Adding the button to the HTML
         $("#gif-buttons").append(politicoBtn);
 
-    };
-};
+    }
+}
 
-    $("#add-name").on("click", function(event) {
-        
-        event.preventDefault();
+$("#add-name").on("click", function(event) {
 
-        $("#gif-buttons").empty();
+    event.preventDefault();
 
-        // This line will grab the text from the input box
-        var name = $("#name-input").val().trim();
-        // The movie from the textbox is then added to our array
-        topics.push(name);
+    $("#gif-buttons").empty();
 
-        renderButtons();
-        
-      });
+    // This line will grab the text from the input box
+    var name = $("#name-input").val().trim();
+    // The movie from the textbox is then added to our array
+    topics.push(name);
+
+    renderButtons();
+
+});
+
 
 renderButtons();
 
-$(".callName").on("click", function() {
 
-            $("#magicGifs").empty();
+$(".callName").on("click", function(event) {
 
-            var politician = $(this).data("name")
-            console.log(politician);
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
+    $("#magicGifs").empty();
 
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).done(function(response) {
+    var politician = $(this).data("name")
+    console.log(politician);
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-                // Storing an array of results in the results variable
-                var results = response.data;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(response) {
 
-                console.log(results);
+        // Storing an array of results in the results variable
+        var results = response.data;
 
-                for (var i = 0; i < results.length; i++) {
+        console.log(results);
 
-                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                        // Creating a div with the class "item"
-                        var gifDiv = $("<div>");
+        for (var i = 0; i < results.length; i++) {
 
-                        gifDiv.addClass("item");
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                // Creating a div with the class "item"
+                var gifDiv = $("<div>");
 
-                        // Storing the result item's rating
-                        var rating = results[i].rating;
+                gifDiv.addClass("item");
 
-                        // Creating a paragraph tag with the result item's rating
-                        var p = $("<p>").text("Rating: " + rating);
+                // Storing the result item's rating
+                var rating = results[i].rating;
 
-                        // Creating a place for the new gif
-                        var politicoGif = $("<img>");
+                // Creating a paragraph tag with the result item's rating
+                var p = $("<p>").text("Rating: " + rating);
 
-                        // Giving the image tag an src attribute of a proprty pulled off the
-                        // result item
+                // Creating a place for the new gif
+                var politicoGif = $("<img>");
 
-                        politicoGif.addClass("imageItself")
-                        politicoGif.attr("data-state", "still")
-                        politicoGif.attr("data-still", results[i].images.fixed_height_still.url)
-                        
-                        politicoGif.attr("data-animate", results[i].images.fixed_height.url)
-                        politicoGif.attr("src", results[i].images.fixed_height_still.url);
-                        
-                        console.log(results[i].images.fixed_height_still.url);
-                       
+                // Giving the image tag an src attribute of a proprty pulled off the
+                // result item
 
-                        // Appending the paragraph and personImageto the "gifDiv" div 
-                        gifDiv.append(p);
-                        gifDiv.append(politicoGif);
+                politicoGif.addClass("imageItself")
+                politicoGif.attr("data-state", "still")
+                politicoGif.attr("data-still", results[i].images.fixed_height_still.url)
 
-                        $("#magicGifs").prepend(gifDiv);
+                politicoGif.attr("data-animate", results[i].images.fixed_height.url)
+                politicoGif.attr("src", results[i].images.fixed_height_still.url);
+
+                console.log(results[i].images.fixed_height_still.url);
 
 
+                // Appending the paragraph and personImageto the "gifDiv" div 
+                gifDiv.append(p);
+                gifDiv.append(politicoGif);
 
-                      }
-
-
-                };
-
-               $(".imageItself").on("click", function() {
-
-                            var state = $(this).attr("data-state");
-                            
-                            if (state === "still") {
-                                $(this).attr("src",$(this).attr("data-animate"));
-                                $(this).attr("data-state", "animate");
-                            } 
-
-                            else {
-                                 $(this).attr("src", $(this).attr("data-still"));
-                                 $(this).attr("data-state", "still");
-
-                            }
-
-
-                        });
-                         
-
-      });
-
-
- });
+                $("#magicGifs").prepend(gifDiv);
 
 
 
+            }
 
 
+        };
 
- 
+        $(".imageItself").on("click", function() {
+
+            var state = $(this).attr("data-state");
+
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+
+            }
 
 
-         
+        });
+
+
+    });
+
+
+});
