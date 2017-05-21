@@ -1,4 +1,4 @@
-var topics = ["Donald Trump", "Jeff Sessions", "Mitch McConnell", "Paul Ryan", "Angela Merkel", "Nigel Farage"]
+var topics = ["Donald Trump", "Jeff Sessions", "Mitch McConnell", "Paul Ryan", "Angela Merkel", "Tayyip Erdogan", "Nigel Farage"]
 var animated;
 var still;
 
@@ -40,7 +40,7 @@ $("#add-name").on("click", function(event) {
 renderButtons();
 
 
-$(".callName").on("click", function(event) {
+$(document).on("click", ".callName", function(event) {
 
     $("#magicGifs").empty();
 
@@ -76,8 +76,9 @@ $(".callName").on("click", function(event) {
                 var politicoGif = $("<img>");
 
                 // Giving the image tag an src attribute of a proprty pulled off the
-                // result item
 
+
+            
                 politicoGif.addClass("imageItself")
                 politicoGif.attr("data-state", "still")
                 politicoGif.attr("data-still", results[i].images.fixed_height_still.url)
@@ -93,6 +94,7 @@ $(".callName").on("click", function(event) {
                 gifDiv.append(politicoGif);
 
                 $("#magicGifs").prepend(gifDiv);
+            
 
 
 
