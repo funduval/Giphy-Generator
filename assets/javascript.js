@@ -26,52 +26,52 @@ renderButtons();
 $(".callName").on("click", function() {
 
 
-            var politician = $(this).data("name")
-            console.log(politician);
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var politician = $(this).data("name")
+    console.log(politician);
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + politician + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).done(function(response) {
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(response) {
 
-              // Storing an array of results in the results variable
-              var results = response.data;
+        // Storing an array of results in the results variable
+        var results = response.data;
 
-                console.log(results);
+        console.log(results);
 
-                for (var i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.length; i++) {
 
-                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                        // Creating a div with the class "item"
-                        var gifDiv = $("<div class='item'>");
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                // Creating a div with the class "item"
+                var gifDiv = $("<div class='item'>");
 
-                        // Storing the result item's rating
-                        var rating = results[i].rating;
+                // Storing the result item's rating
+                var rating = results[i].rating;
 
-                        // Creating a paragraph tag with the result item's rating
-                        var p = $("<p>").text("Rating: " + rating);
+                // Creating a paragraph tag with the result item's rating
+                var p = $("<p>").text("Rating: " + rating);
 
-                        // Creating a place for the new gif
-                        var politicoGif = $("<img>");
+                // Creating a place for the new gif
+                var politicoGif = $("<img>");
 
-                        // Giving the image tag an src attribute of a proprty pulled off the
-                        // result item
-                        politicoGif.attr("src", results[i].images.fixed_height.url);
-                        console.log(results[i].images.fixed_height.url);
+                // Giving the image tag an src attribute of a proprty pulled off the
+                // result item
+                politicoGif.attr("src", results[i].images.fixed_height.url);
+                console.log(results[i].images.fixed_height.url);
 
-                        // Appending the paragraph and personImageto the "gifDiv" div 
-                        gifDiv.append(p);
-                        gifDiv.append(politicoGif);
-
-
-                        $("#magicGifs").prepend(gifDiv);
-
-                    };
-
-                  };
+                // Appending the paragraph and personImageto the "gifDiv" div 
+                gifDiv.append(p);
+                gifDiv.append(politicoGif);
 
 
-            });
+                $("#magicGifs").prepend(gifDiv);
 
-            });
+            };
+
+        };
+
+
+    });
+
+});

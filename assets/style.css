@@ -1,71 +1,56 @@
-#magicGifs{
-
-	min-height:700px;
-	background:papayawhip;
-
+#magicGifs {
+    min-height: 700px;
+    background: papayawhip;
 }
 
 .giphy {
-
-	margin:6px;
-	height:50px;
-	min-width:240px;
-	padding: 4px 4px 4px 4px;
-	border-style: solid;
-	border-width:2px;
-	border-color: #777777;
-	background-color: #eeeeee;
-	color:#777777;
-	font-size: 20px;
-	line-height: 38px;
+    margin: 6px;
+    height: 50px;
+    min-width: 240px;
+    padding: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #777777;
+    background-color: #eeeeee;
+    color: #777777;
+    font-size: 20px;
+    line-height: 38px;
 }
 
-body{
-background-color: tomato;
-font-size: 20px;
-
+body {
+    background-color: tomato;
+    font-size: 20px;
 }
 
 .jumbotron {
-min-height: 180px;
-padding:6px;
-margin-top: 12px;
-
-
+    min-height: 180px;
+    padding: 6px;
+    margin-top: 12px;
 }
 
 #headline {
-
-	display: inline;
-	float:left;
+    display: inline;
+    float: left;
 }
 
-#side{
-display: inline;
-float:right;
-border-color: grey;
-border-style: solid;
-border-width: 3px;
-margin-top: 8px;
-padding:34px;
-
-
+#side {
+    display: inline;
+    float: right;
+    border-color: grey;
+    border-style: solid;
+    border-width: 3px;
+    margin-top: 8px;
+    padding: 34px;
 }
 
-.callName{
-
-	margin: 8px;
+.callName {
+    margin: 8px;
 }
 
-
-#gif-buttons{
-
-	min-height: 200px;
-	border-color: grey;
-	border-style: solid;
-	border-width: 14px;
-	margin-bottom: 16px;
-
-
+#gif-buttons {
+    min-height: 200px;
+    border-color: grey;
+    border-style: solid;
+    border-width: 14px;
+    margin-bottom: 16px;
 }
-
