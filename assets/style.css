@@ -1,6 +1,19 @@
 #magicGifs {
-    min-height: 700px;
-    background: #121c50;
+    min-height: 140px;
+    background-color: white;
+    border-color: #757171;
+    border-style: solid;
+    border-width: 16px;
+}
+
+#instructions {
+    text-align: center;
+    line-height: 34px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color:#121c50;
+    color: white;
+    font-size: 26px;
 }
 
 .giphy {
@@ -69,7 +82,7 @@ p{
 }
 
 #gif-buttons {
-    min-height: 200px;
+    min-height: 140px;
     border-color: #757171;
     border-style: solid;
     border-width: 16px;
