@@ -94,3 +94,14 @@ p{
     float: left;
     margin-right: 18px;
 }
+
+@media screen and (max-width: 1200px) {
+
+
+   .jumbotron {
+    height: 280px;
+    padding: 6px;
+    margin-top: 12px;
+    background-color: #121c50;
+    color:white;
+}
