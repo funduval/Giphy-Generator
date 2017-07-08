@@ -57,11 +57,13 @@ body {
 }
 
 #headline {
+
     display: inline;
     float: left;
 }
 
 #side {
+
     display: inline;
     float: right;
     border-color: #757171;
@@ -73,6 +75,7 @@ body {
 }
 
 .callName {
+
     margin: 8px;
 }
 
@@ -82,6 +85,7 @@ p{
 }
 
 #gif-buttons {
+
     min-height: 140px;
     border-color: #757171;
     border-style: solid;
@@ -91,12 +95,18 @@ p{
 }
 
 .item {
+
     float: left;
     margin-right: 18px;
 }
 
 @media screen and (max-width: 1200px) {
 
+#wrapper{
+
+    margin-left: auto;
+    margin-right: auto;
+}
 
    .jumbotron {
     min-height: 340px;
@@ -138,35 +148,48 @@ p{
     padding: 18px;
     
 }
+
 .callName {
     margin: 2px;
     display: inline;
-    float:left;
+    clear:all;
     font-size:34px;
     line-height: 50px;
     background-color: white;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 #magicGifs {
   
     display: block;
     clear: left;
     background-color: white;
-    border-color: #757171;
-    border-style: solid;
-    border-width: 16px;
-    visibility: hidden;
+    border-color: transparent;
+   margin-left: auto;
+   margin-right: auto;
+
+ 
+  
 }
+
+.imageItself{
+
+    margin-left: 47%;
+}
+
 #instructions{
 
-     display: block;
+    display: block;
     clear: left;
     font-size: 40px;
     padding:18px;
     margin-top: 18px;
     line-height: 50px;
 }
+}
+
 body{
+
     background-image: none;
-
-
 }
